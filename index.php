@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Libros</title>
+    <title>WaifuStore</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="./vistas/assets/css/block/textarea.css">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <h1 class="text-center p-3 m-0 fw-bold">Tienda Libros</h1>
+    <h1 class="text-center p-3 m-0 fw-bold">WaifuStore</h1>
     <div class="container-fluid px-5 row mb-2">
         <form class="col-4">
             <h3 class="text-left py-3 text-primary fw-bold m-0">Registro de Libros</h3>
