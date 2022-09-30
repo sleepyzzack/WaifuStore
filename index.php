@@ -14,10 +14,32 @@
 </head>
 
 <body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Buscar">
+            <button type="submit" name="buscar" class="form-control form-control-dark text-bg-dark">buscar</button>
+            </form>
+
+            <div class="text-end">
+            <button type="button" class="btn btn-outline-light me-2">Login</button>
+            <button type="button" class="btn btn-warning">Sign-up</button>
+            </div>
+        </div>
+        </div>
+    </header>
+
     <h1 class="text-center p-3 m-0 fw-bold">WaifuStore</h1>
     <div class="container-fluid px-5 row mb-2">
-        <form class="col-4">
+        <form class="col-4" method="POST">
+
             <h3 class="text-left py-3 text-primary fw-bold m-0">Registro de Libros</h3>
+            <?php 
+            include("modelos/conexion.php");
+            include("controladores/registros.php");
+            ?>
             <div class="mb-3">
                 <label for="titulo" class="form-label">Titulo</label>
                 <input type="text" class="form-control" name="titulo" id="titulo">
