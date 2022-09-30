@@ -58,7 +58,7 @@
                         <td>5</td>
                         <td class="d-flex gap-4">
                             <a class="btn btn-small btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a class="btn btn-small btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
+                            <a class="btn btn-small btn-danger" href="index.php?id=<?= $datos->id_libro ?>"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                     
@@ -70,4 +70,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 
-</html>
+</html>xd
