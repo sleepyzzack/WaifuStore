@@ -49,18 +49,30 @@
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
+
                 <tbody>
+                
+                <?php
+            
+                include_once('modelos/conexion.php');
+                $sql = $connect->query("SELECT * FROM books");
+                while($datos=$sql->fetch_object()){?>
                     <tr>
-                        <td class="fw-bold">1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
+                        <td class="fw-bold"><?php $datos->id_books?></td>
+                        <td><?= $datos->book_name ?></td>
+                        <td><?= $datos->book_category ?></td>
+                        <td><?= $datos->book_price ?></td>
+                        <td><?= $datos->book_description ?></td>
                         <td class="d-flex gap-4">
                             <a class="btn btn-small btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a class="btn btn-small btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
+                    
+                <?php }
+        
+                ?>
+
                     
                 </tbody>
             </table>
