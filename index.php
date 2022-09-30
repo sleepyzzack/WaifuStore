@@ -64,7 +64,7 @@
                         <td><?= $datos->book_price ?></td>
                         <td><?= $datos->book_description ?></td>
                         <td class="d-flex gap-4">
-                            <a class="btn btn-small btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href ="modificar_producto.php" class="btn btn-small btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a class="btn btn-small btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>

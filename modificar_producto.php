@@ -38,7 +38,7 @@ $sql=$conexion->query("select*fomr producto where id_producto=$id");
                 <label for="descripcion" class="form-label">Descripcion</label>
                 <input type="text" class="form-control" name="descripcion" id="descripcion" value="<? $datos->book_description ?>">
             </div> 
-    <?php}
+        <?php }
     ?>
 
             <button type="submit" class="btn btn-primary" name="btnregistrar">Actualizar Producto</button>
