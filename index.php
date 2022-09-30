@@ -58,7 +58,7 @@
                 $sql = $connect->query("SELECT * FROM books");
                 while($datos=$sql->fetch_object()){?>
                     <tr>
-                        <td class="fw-bold"><?php $datos->id_books?></td>
+                        <td class="fw-bold"><?= $datos->id_books?></td>
                         <td><?= $datos->book_name ?></td>
                         <td><?= $datos->book_category ?></td>
                         <td><?= $datos->book_price ?></td>
