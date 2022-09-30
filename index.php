@@ -37,10 +37,10 @@
 
             <button type="submit" class="btn btn-primary" name="btnregistrar" value="registrar">Registrar</button>
         </form>
-        <div class="col-8 p-4">
-            <table class="table">
+        <div class="col-8 p-4 table-responsive">
+            <table class="table table-borderless table-sm">
                 <thead>
-                    <tr class="bg-info">
+                    <tr class="bg-info ">
                         <th scope="col">ID</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Categoria</th>
@@ -58,7 +58,7 @@
                 $sql = $connect->query("SELECT * FROM books");
                 while($datos=$sql->fetch_object()){?>
                     <tr>
-                        <td class="fw-bold"><?= $datos->id_books?></td>
+                        <td class="fw-bold" ><?= $datos->id_books?></td>
                         <td><?= $datos->book_name ?></td>
                         <td><?= $datos->book_category ?></td>
                         <td><?= $datos->book_price ?></td>
