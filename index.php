@@ -37,10 +37,10 @@
 
             <button type="submit" class="btn btn-primary" name="btnregistrar" value="registrar">Registrar</button>
         </form>
-        <div class="col-8 p-4">
-            <table class="table">
+        <div class="col-8 p-4 table-responsive">
+            <table class="table table-borderless table-sm">
                 <thead>
-                    <tr class="bg-info">
+                    <tr class="bg-info ">
                         <th scope="col">ID</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Categoria</th>
@@ -49,18 +49,28 @@
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
+
                 <tbody>
+                
+                <?php
+            
+                include_once('modelos/conexion.php');
+                $sql = $connect->query("SELECT * FROM books");
+                while($datos=$sql->fetch_object()){?>
                     <tr>
-                        <td class="fw-bold">1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
+                        <td class="fw-bold" ><?= $datos->id_books?></td>
+                        <td><?= $datos->book_name ?></td>
+                        <td><?= $datos->book_category ?></td>
+                        <td><?= $datos->book_price ?></td>
+                        <td><?= $datos->book_description ?></td>
                         <td class="d-flex gap-4">
-                            <a class="btn btn-small btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a class="btn btn-small btn-danger" href="index.php?id=<?= $datos->id_libro ?>"><i class="fa-solid fa-trash"></i></a>
+                            <a href ="modificar_producto.php?id=<?= $datos-> id_books ?>" class="btn btn-small btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-small btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
+                <?php }
+                ?>
+
                     
                 </tbody>
             </table>
@@ -70,4 +80,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 
-</html>xd
+</html>
