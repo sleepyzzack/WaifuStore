@@ -18,11 +18,19 @@ $sql = $connect->query("SELECT * FROM books WHERE id_books = $id");
     </head>
 
     <body>
+
+
+
         <form class="col-4 p-3 m-auto" method="POST">
             <h5 class="text-center alert alert-secondary">Modificar</h5>
             <input type="hidden" name="id" value="<? $_GET['id'] ?>">
+            
             <?php
-            // include "controladores/modificar.php";
+            include "controladores/editar.php";
+            //ed = editar aqui se instancia el objeto xd
+            $ed = new edit();
+            $ed->mod($connect);
+
             while ($datos = $sql->fetch_object()) { ?>
                 <div class="mb-3">
                     <label for="titulo" class="form-label">Titulo</label>
