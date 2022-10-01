@@ -27,9 +27,12 @@ $sql = $connect->query("SELECT * FROM books WHERE id_books = $id");
             
             <?php
             include "controladores/editar.php";
+<<<<<<< HEAD
             //ed = editar aqui se instancia el objeto xd
             $ed = new edit();
             $ed->mod($connect);
+=======
+>>>>>>> 59dcf9540893f96707e544efbf221697b0f838b9
 
             while ($datos = $sql->fetch_object()) { ?>
                 <div class="mb-3">
