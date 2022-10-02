@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="./vistas/assets/css/block/textarea.css">
     <script src="https://kit.fontawesome.com/06e9d41eed.js" crossorigin="anonymous"></script>
     <script src="extras\pop.js" crossorigin="juanito"></script>
+    <script src="extras/confirmar.js"></script>
 </head>
 
 <body>
+   
+
     <header class="p-3 text-bg-dark">
         <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -25,7 +28,7 @@
 
             <div class="text-end">
             <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+            <button type="button" class="btn btn-warning">Guardar</button>
             </div>
         </div>
         </div>
@@ -39,6 +42,8 @@
             <?php 
             include("modelos/conexion.php");
             include("controladores/registros.php");
+            include("controladores/eliminar.php");
+
             
             $reg = new regis();
             $reg->add($connect);
@@ -46,11 +51,11 @@
             ?>
             <div class="mb-3">
                 <label for="titulo" class="form-label">Titulo</label>
-                <input type="text" class="form-control" name="titulo" id="titulo">
+                <input type="text" class="form-control" name="titulo" id="titulo" onInput="setTimeout(borrar(), 2000);">
             </div>
             <div class="mb-3">
                 <label for="categoria" class="form-label">Categoria</label>
-                <input type="text" class="form-control" name="categoria" id="categoria">
+                <input type="text" class="form-control" name="categoria" id="categoria" onInput="setTimeout(borrar(), 2000);">
             </div>
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
@@ -61,7 +66,7 @@
                 <textarea class="form-control input__text-area" name="descripcion" id="descripcion"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" name="btnregistrar" value="registrar">Registrar</button>
+            <button type="submit" class="btn btn-primary" name="btnregistrar" value="registrar" onClick="setTimeout(borrar(), 3000);">Registrar</button>
         </form>
         <div class="col-8 p-4 table-responsive">
             <table class="table table-borderless table-sm">
@@ -91,7 +96,7 @@
                         <td><?= $datos->book_description ?></td>
                         <td class="d-flex gap-4">
                             <a href ="modificar_producto.php?id=<?= $datos-> id_books ?>" class="btn btn-small btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a class="btn btn-small btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
+                            <a onClick="return confirmar('eliminar esta fila?')" class="btn btn-small btn-danger" href="index.php?id=<?= $datos->id_books ?>"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php }
