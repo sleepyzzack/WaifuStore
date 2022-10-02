@@ -1,9 +1,13 @@
 
-setTimeout(function prueba() {
+function borrar() {
+
     var el = document.getElementById('borrame');
     if (el != null) {
-        el.remove();
+        for(i = 0; i <= document.getElementsByTagName("div").length; i++){
+            el.remove();
+        }
+
     } else {
        console.log("xd");
     }
-}, 3000);
+}
