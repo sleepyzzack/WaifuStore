@@ -23,7 +23,7 @@ class regis{
                 }
 
             }else{
-                echo '<div class="alert alert-warning">wtf escucho borroso, o no has escrito nada</div>';
+                // echo '<div class="alert alert-warning">wtf escucho borroso, o no has escrito nada</div>';
                 }
         }
     }

@@ -6,103 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WaifuStore</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="./vistas/assets/css/block/textarea.css">
+    <link rel="stylesheet" href="./vistas/assets/css/normalize.css">
+    <link rel="stylesheet" href="./vistas/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/06e9d41eed.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <header class="p-3 text-bg-dark">
-        <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-            <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Buscar">
-            <button type="submit" name="buscar" class="form-control form-control-dark text-bg-dark">buscar</button>
-            </form>
-
-            <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+<body class="element-center">
+    <main class="main element-center">
+        <h1 class="main__title">WaifuStore</h1>
+        <div class="content-container">
+            <div class="form-container element-center">
+                <form class="form element-center" method="POST">
+                    <h3 class="form__title">Registro de Libros</h3>
+                    <?php
+                    include("modelos/conexion.php");
+                    include("controladores/registros.php");
+                    $reg = new regis();
+                    $reg->add($connect);
+                    ?>
+                    <div class="form__input-container">
+                        <label class="form__input-title" for="titulo">Titulo</label>
+                        <input class="form__input" type="text" name="titulo" id="titulo" autocomplete="off">
+                    </div>
+                    <div class="form__input-container">
+                        <label class="form__input-title" for="categoria">Categoria</label>
+                        <input class="form__input" type="text" name="categoria" id="categoria" autocomplete="off">
+                    </div>
+                    <div class="form__input-container">
+                        <label class="form__input-title" for="precio">Precio</label>
+                        <input class="form__input" type="text" name="precio" id="precio" autocomplete="off">
+                    </div>
+                    <div class="form__input-container">
+                        <label class="form__input-title" for="descripcion">Descripcion</label>
+                        <textarea class="form__textarea" name="descripcion" id="descripcion" autocomplete="off"></textarea>
+                    </div>
+                    <button class="form__btn" type="submit" name="btnregistrar" value="registrar">Registrar</button>
+                </form>
+            </div>
+            <div class="table-container">
+                <table class="table">
+                    <thead class="table__header">
+                        <tr>
+                            <th class="table__column" scope="col">ID</th>
+                            <th class="table__column" scope="col">Titulo</th>
+                            <th class="table__column" scope="col">Categoria</th>
+                            <th class="table__column" scope="col">Precio</th>
+                            <th class="table__column" scope="col">Descripcion</th>
+                            <th class="table__column" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include_once('modelos/conexion.php');
+                        $sql = $connect->query("SELECT * FROM books");
+                        while ($datos = $sql->fetch_object()) { ?>
+                            <tr class="table__row">
+                                <td class="table__data"><?= $datos->id_books ?></td>
+                                <td class="table__data"><?= $datos->book_name ?></td>
+                                <td class="table__data"><?= $datos->book_category ?></td>
+                                <td class="table__data"><?= $datos->book_price ?></td>
+                                <td class="table__data"><?= $datos->book_description ?></td>
+                                <td class="table__data">
+                                    <a class="table__btn table__btn--yellow" href="modificar_producto.php?id=<?= $datos->id_books ?>" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="table__btn table__btn--red" href="#"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        <?php }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
-        </div>
-    </header>
+    </main>
 
-    <h1 class="text-center p-3 m-0 fw-bold">WaifuStore</h1>
-    <div class="container-fluid px-5 row mb-2">
-        <form class="col-4" method="POST">
-
-            <h3 class="text-left py-3 text-primary fw-bold m-0">Registro de Libros</h3>
-            <?php 
-            include("modelos/conexion.php");
-            include("controladores/registros.php");
-            
-            $reg = new regis();
-            $reg->add($connect);
-
-            ?>
-            <div class="mb-3">
-                <label for="titulo" class="form-label">Titulo</label>
-                <input type="text" class="form-control" name="titulo" id="titulo">
-            </div>
-            <div class="mb-3">
-                <label for="categoria" class="form-label">Categoria</label>
-                <input type="text" class="form-control" name="categoria" id="categoria">
-            </div>
-            <div class="mb-3">
-                <label for="precio" class="form-label">Precio</label>
-                <input type="text" class="form-control" name="precio" id="precio">
-            </div>
-            <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripcion</label>
-                <textarea class="form-control input__text-area" name="descripcion" id="descripcion"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" name="btnregistrar" value="registrar">Registrar</button>
-        </form>
-        <div class="col-8 p-4 table-responsive">
-            <table class="table table-borderless table-sm">
-                <thead>
-                    <tr class="bg-info ">
-                        <th scope="col">ID</th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                
-                <?php
-            
-                include_once('modelos/conexion.php');
-                $sql = $connect->query("SELECT * FROM books");
-                while($datos=$sql->fetch_object()){?>
-                    <tr>
-                        <td class="fw-bold" ><?= $datos->id_books?></td>
-                        <td><?= $datos->book_name ?></td>
-                        <td><?= $datos->book_category ?></td>
-                        <td><?= $datos->book_price ?></td>
-                        <td><?= $datos->book_description ?></td>
-                        <td class="d-flex gap-4">
-                            <a href ="modificar_producto.php?id=<?= $datos-> id_books ?>" class="btn btn-small btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a class="btn btn-small btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-                <?php }
-                ?>
-
-                    
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 
 </html>
