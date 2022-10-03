@@ -36,7 +36,15 @@
                     </div>
                     <div class="form__input-container">
                         <label class="form__input-title" for="categoria">Categoria</label>
-                        <input class="form__input" type="text" name="categoria" id="categoria" autocomplete="off">
+                        <select class="form__input" name="categoria" id="categoria">
+                            <option disabled selected>Seleccione una categoria</option>
+                            <option value="Accion">Accion</option>
+                            <option value="Aventura">Aventura</option>
+                            <option value="Manga">Manga</option>
+                            <option value="Novela">Novela</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                        </select>
                     </div>
                     <div class="form__input-container">
                         <label class="form__input-title" for="precio">Precio</label>

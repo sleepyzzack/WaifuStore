@@ -34,7 +34,16 @@ $sql = $connect->query("SELECT * FROM books WHERE id_books = $id");
                 </div>
                 <div class="mb-3">
                     <label for="categoria" class="form-label">Categoria</label>
-                    <input type="text" class="form-control" name="categoria" id="categoria" value="<?= $datos->book_category ?>">
+                    <select class="form__input" name="categoria" id="categoria">
+                            <option disabled selected>Seleccione una categoria</option>
+                            <option value="Accion">Accion</option>
+                            <option value="Aventura">Aventura</option>
+                            <option value="Manga">Manga</option>
+                            <option value="Novela">Novela</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                    </select>
+
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Precio</label>
