@@ -24,18 +24,15 @@ class regis{
                 }
 
             }else{
-<<<<<<< HEAD
-                // echo '<div class="alert alert-warning">wtf escucho borroso, o no has escrito nada</div>';
+
                 }
-=======
                 echo '<div class="alert alert-warning" id="borrame">wtf escucho borroso, o no has escrito nada</div>';
                 
             }
->>>>>>> 1bffc607471979c23a4089dfed5e57358c63fd88
+
         }
     }
 
-}
 
 
 
