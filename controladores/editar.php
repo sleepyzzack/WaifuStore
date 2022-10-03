@@ -1,5 +1,6 @@
 <?php
 require_once('modificar_producto.php');
+require('uploadImg.php');
 
 class edit{
     
@@ -11,8 +12,9 @@ class edit{
                 $precio = (float) $_POST["price"];
                 $desc = $_POST["descripcion"];
                 $id = $_GET["id"];
-
-                $sql = $connect->query("UPDATE books SET book_name='$titulo', book_category='$cat', book_price=$precio, book_description='$desc' WHERE id_books=$id");
+                $img = img::upload();
+                echo $img;
+                $sql = $connect->query("UPDATE books SET book_name='$titulo', book_category='$cat', book_price=$precio, book_description='$desc',  book_img='$img' WHERE id_books=$id");
             
                 if($sql==1){
                     echo '<div class="alert alert-success" id="borrame" onClick="borrar()">se ha registrado con exito!!</div>';

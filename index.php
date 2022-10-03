@@ -20,7 +20,7 @@
         <h1 class="main__title">WaifuStore</h1>
         <div class="content-container">
             <div class="form-container element-center">
-                <form class="form element-center" method="POST">
+                <form class="form element-center" method="POST" enctype="multipart/form-data">
                     <h3 class="form__title">Registro de Libros</h3>
                     <?php
                     include("modelos/conexion.php");
@@ -54,6 +54,10 @@
                         <label class="form__input-title" for="descripcion">Descripcion</label>
                         <textarea class="form__textarea" name="descripcion" id="descripcion" autocomplete="off"></textarea>
                     </div>
+                    <div class="form__input-container">
+                        <label class="form__input-title" for="foto">Imagen</label>
+                        <input class="form__input" name="foto" id="foto" type="file">
+                    </div>
                     <button class="form__btn" type="submit" name="btnregistrar" value="registrar">Registrar</button>
                 </form>
             </div>
@@ -66,6 +70,7 @@
                             <th class="table__column" scope="col">Categoria</th>
                             <th class="table__column" scope="col">Precio</th>
                             <th class="table__column" scope="col">Descripcion</th>
+                            <th class="table__column" scope="col">Imagenes</th>
                             <th class="table__column" scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -80,6 +85,7 @@
                                 <td class="table__data"><?= $datos->book_category ?></td>
                                 <td class="table__data"><?= $datos->book_price ?></td>
                                 <td class="table__data"><?= $datos->book_description ?></td>
+                                <td class="table__data"><?= $datos->book_img ?></td>
                                 <td class="table__data">
                                     <a class="table__btn table__btn--yellow" href="modificar_producto.php?id=<?= $datos->id_books ?>" onClick="return confirmar('modificar esta fila??')" ><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a class="table__btn table__btn--red" onClick="return confirmar('eliminar esta fila?')" href="index.php?id=<?= $datos->id_books ?>" ><i class="fa-solid fa-trash"></i></a>

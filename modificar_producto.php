@@ -18,12 +18,12 @@ $sql = $connect->query("SELECT * FROM books WHERE id_books = $id");
     </head>
 
     <body>
-        <form class="col-4 p-3 m-auto" method="POST">
+        <form class="col-4 p-3 m-auto" method="POST" enctype="multipart/form-data">
             <h5 class="text-center alert alert-secondary">Modificar</h5>
             <input type="hidden" name="id" value="<? $_GET['id'] ?>">
 
             <?php
-            include "controladores/editar.php";
+            include("controladores/editar.php");
             //ed = editar aqui se instancia el objeto xd
             $ed = new edit();
             $ed->mod($connect);
@@ -53,8 +53,16 @@ $sql = $connect->query("SELECT * FROM books WHERE id_books = $id");
                     <label for="descripcion" class="form-label">Descripcion</label>
                     <input type="text" class="form-control" name="descripcion" id="descripcion" value="<?= $datos->book_description ?>">
                 </div>
+                
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Imagen</label>
+                    <input class="form-control" name="foto" id="foto" type="file">
+                </div>    
+            
             <?php }
             ?>
+            
+
             <button type="submit" class="btn btn-primary" name="btnregistrar" value="ok">Actualizar</button>
         </form>
     </body>

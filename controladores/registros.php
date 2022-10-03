@@ -1,5 +1,5 @@
 <?php
-
+require_once('uploadImg.php');
 
 class regis{
     
@@ -11,9 +11,9 @@ class regis{
                 $cat = $_POST["categoria"];
                 $precio = (float) $_POST["precio"];
                 $desc = $_POST["descripcion"];
-                        
+                $img = img::upload();
                                 
-                $sql = $connect->query("INSERT INTO books (book_name, book_category, book_price, book_description) VALUES ('$titulo', '$cat', $precio, '$desc')");
+                $sql = $connect->query("INSERT INTO books (book_name, book_category, book_price, book_description, book_img) VALUES ('$titulo', '$cat', $precio, '$desc', '$img')");
                 
                 if($sql==1){
                     echo '<div class="alert alert-success" id="borrame" onClick="borrar()>se ha registrado con exito!!</div>';
