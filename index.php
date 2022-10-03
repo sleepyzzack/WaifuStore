@@ -12,8 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/06e9d41eed.js" crossorigin="anonymous"></script>
+    <script src="extras\pop.js" crossorigin="juanito"></script>
+    <script src="extras/confirmar.js"></script>
 </head>
-
 <body class="element-center">
     <main class="main element-center">
         <h1 class="main__title">WaifuStore</h1>
@@ -78,10 +79,6 @@
                         ?>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </main>
-
 </body>
 
 </html>
