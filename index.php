@@ -71,8 +71,8 @@
                                 <td class="table__data"><?= $datos->book_price ?></td>
                                 <td class="table__data"><?= $datos->book_description ?></td>
                                 <td class="table__data">
-                                    <a class="table__btn table__btn--yellow" href="modificar_producto.php?id=<?= $datos->id_books ?>" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a class="table__btn table__btn--red" href="#"><i class="fa-solid fa-trash"></i></a>
+                                    <a class="table__btn table__btn--yellow" href="modificar_producto.php?id=<?= $datos->id_books ?>" ><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="table__btn table__btn--red" onClick="return confirmar('eliminar esta fila?')" href="index.php?id=<?= $datos->id_books ?>" ><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php }
