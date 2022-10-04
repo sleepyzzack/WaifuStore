@@ -45,10 +45,10 @@
         <div class="row">
            
         <?php
-                        include_once('modelos/conexion.php');
-                        $sql = $connect->query("SELECT * FROM books");
-                        while ($datos = $sql->fetch_object()) { ?>
-                           <div class="col-md-3">
+                    include_once('modelos/conexion.php');
+                    $sql = $connect->query("SELECT * FROM books");
+                    while ($datos = $sql->fetch_object()) { ?>
+                       <div class="col-md-3">
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <h1 class="text-center titulo-pelicula"><?= $datos->book_name ?></h1>  
