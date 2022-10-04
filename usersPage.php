@@ -30,14 +30,9 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="index.php">WaifuStore</a>
+          <a href="" class="btn">CARRITO<span class="badge">0</span></a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav pull-right">
-            <li>
-              <a href="" class="btn">CARRITO <span class="badge">0</span></a>
-            </li> 
-          </ul>
-        </div><!--/.nav-collapse -->
+       
       </div>
     </nav>
 
@@ -50,9 +45,7 @@
                     while ($datos = $sql->fetch_object()) { ?>
                        <div class="col-md-3">
                   <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h1 class="text-center titulo-pelicula"><?= $datos->book_name ?></h1>  
-                    </div>
+                    
                     <div class="panel-body">
                       <?php
                         
@@ -69,6 +62,14 @@
                         <img src="assets/imagenes/not-found.jpg" class="img-responsive">
                       <?php }?>
                     </div>
+                    <div class="panel-heading">
+                      <h1 class="text-center titulo-pelicula"><?= $datos->book_name ?></h1>  
+                    </div>
+                    
+                    <div class="panel-heading">
+                      <h1 class="text-center titulo-pelicula">Categoria: <?= $datos->book_category ?></h1>  
+                    </div>
+
                     <div class="panel-footer">
                     <span>$<?= $datos->book_price; ?></span>
       
