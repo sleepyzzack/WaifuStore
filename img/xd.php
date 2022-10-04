@@ -1,7 +1,7 @@
 <?php
 
 
-echo filetype('chitan.mp4');
+echo file('chitan.mp4');
 
 
 ?>

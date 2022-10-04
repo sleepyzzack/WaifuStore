@@ -70,7 +70,8 @@
                       <?php }?>
                     </div>
                     <div class="panel-footer">
-
+                    <span>$<?= $datos->book_price; ?></span>
+      
                     </div>
 
                     <div class="panel-footer">
