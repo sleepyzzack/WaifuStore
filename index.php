@@ -17,7 +17,7 @@
 </head>
 <body class="element-center">
     <main class="main element-center">
-        <h1 class="main__title">WaifuStore</h1>
+        <h1 class="main__title"> <a href="usersPage.php">WaifuStore</a></h1>
         <div class="content-container">
             <div class="form-container element-center">
                 <form class="form element-center" method="POST" enctype="multipart/form-data">
