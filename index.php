@@ -91,8 +91,8 @@
                                     <a class="table__btn table__btn--red" onClick="return confirmar('eliminar esta fila?')" href="index.php?id=<?= $datos->id_books ?>" ><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
-                        <?php }
-                        ?>
+                        <?php } ?>
+                        
                     </tbody>
                 </table>
 </body>
