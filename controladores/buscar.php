@@ -52,8 +52,8 @@ $numero = mysqli_num_rows($buscador);
                     </div>
 
                     <div class="panel-footer">
-                        <a href="carrito.php?id=<?= $datos["id_books"] ?>" class="btn btn-success btn-block">
-                          <span class="glyphicon glyphicon-shopping-cart"> Comprar</span>
+                        <a href="vistas/comprar.php?id=<?= $datos["id_books"] ?>" class="btn btn-success btn-block">
+                          <span class="glyphicon glyphicon-shopping-cart">Comprar</span>
                         </a>
                     </div>
                   </div>
