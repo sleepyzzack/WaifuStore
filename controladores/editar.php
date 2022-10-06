@@ -18,14 +18,14 @@ class edit{
             
                 if($sql==1){
                     echo '<div class="alert alert-success" id="borrame" onClick="borrar()">se ha registrado con exito!!</div>';
-                    header('Location:index.php');
+                    header('Location:adminIndex.php');
                 }else{
                     echo '<div class="alert alert-danger">no se pudo registrar F</div>';
-                    header('Location:index.php');
+                    header('Location:adminIndex.php');
                 }
 
             }else{
-                echo '<div class="alert alert-warning">wtf escucho borroso, o no has escrito nada</div>';
+                echo '<div class="alert alert-warning" id="borrame" onClick="borrar()">wtf escucho borroso, o no has escrito nada</div>';
             }
 
         }

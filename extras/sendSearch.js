@@ -13,5 +13,4 @@
     });}else{
         document.getElementById("datos_buscador").innerHTML = " ";
     }
-
 }
