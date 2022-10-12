@@ -1,5 +1,4 @@
 <?php 
-
 $connect = mysqli_connect(
     'localhost', 
     'root',
@@ -8,7 +7,3 @@ $connect = mysqli_connect(
 );
 
 $connect->set_charset("utf8");
-
-
-
-?>

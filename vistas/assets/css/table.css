@@ -1,0 +1,146 @@
+:root {
+    --black: #000000;
+    --very-light-green:#D4F6CC ;
+    --light-green: #3CCF4E;
+    --white: #FFFFFF;
+    --light-gray: #E8F9FD;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Code', monospace;
+    background-color: var(--light-gray);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    gap: 2em;
+    padding-block: 2em;
+    background-color: var(--light-green);
+}
+
+.main {
+    margin-inline: 20px;
+}
+
+.main__title {
+    margin: 0;
+    transition: transform .3s;
+}
+
+.main__title-link {
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--white);
+    transition: transform .3s;
+
+}
+
+.main__title-link:hover,
+.main__title:hover {
+    transform: scale(1.1);
+}
+
+/* Tablas */
+
+.table__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+.table {
+    width: 100%;
+    border: 1px var(--black) solid;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.table__row {
+    background-color:var(--very-light-green);
+    border: 1px var(--black) solid;
+}
+
+.table__column, .table__data {
+    padding: 8px;
+    text-align: center;
+}
+
+.table__data:hover {
+    background-color: rgb(143 188 143 / .5);
+}
+
+.table__column {
+    text-transform: uppercase;
+    background-color: var(--light-green);
+    color: var(--white);
+}
+
+.table__row {
+    transition:background-color .2s;
+}
+
+.table__row:hover {
+    background-color: rgb(143 188 143 / .2);
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .table {
+        border: 0;
+    }
+
+    .table__title {
+        font-size: 1.7rem;
+    }
+
+    .table__header {
+        display: none;
+    }
+
+    .table__row {
+        margin-bottom: 8px;
+        border-bottom: 4px solid var(--black);
+        display: block;
+    }
+
+    .table__column, .table__data {
+        font-size: .9rem;
+    }
+
+    .table__data{
+        display: block;
+        border-bottom: 1px solid var(--black);
+        text-align: right;
+    }
+    
+    .table__data:last-child {
+        border: 0;
+    }
+
+    .table__data::before {
+        content: attr(data-label);
+        text-transform: uppercase;
+        font-weight: 500;
+        float: left;
+    }
+}

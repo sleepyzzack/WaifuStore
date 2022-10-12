@@ -1,0 +1,64 @@
+:root {
+    --light-green: #59CE8F;
+    --white: #E8F9FD;
+}
+
+* {
+    font-family: 'Silkscreen', cursive;
+}
+
+.navbar-header,
+.navbar__search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-header {
+    padding: 1em;
+    background-color: var(--light-green);
+    color: var(--white);
+}
+
+
+.navbar__search-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.navbar__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.navbar__search-input {
+    font-size: 1.3rem;
+}
+
+.navbar__search-input,
+.login__input {
+    padding-bottom: .3em;
+    background: none;
+    color: var(--white);
+    border: 0;
+    border-bottom: 2px var(--white) solid;
+}
+
+.login__input {
+    border-color: black;
+    color: black;
+}
+
+.navbar__search-input:focus {
+    outline: none;
+}
+
+@media screen and (min-width: 768px) {
+
+    .navbar-header,
+    .navbar__search {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}

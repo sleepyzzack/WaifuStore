@@ -17,7 +17,6 @@ function adminLogin(){
 }   
 
 function createDiv(){
-
-    document.getElementById("pass").innerHTML = '<div id="dialog" title="Basic dialog">Password<input id="password" type="password" size="25" />  User Name<input id="userName" type="text" size="25" /> <button onClick="adminLogin()">a ver</button></div>';
+    document.getElementById("pass").innerHTML = '<div class="login__container" id="dialog" title="Basic dialog">Password<input class="login__input" id="password" type="password" size="25" />  Username<input class="login__input" id="userName" type="text" size="25" /> <button class="login__button" onClick="adminLogin()">Ingresar</button></div>';
 
 }

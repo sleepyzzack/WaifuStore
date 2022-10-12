@@ -1,0 +1,37 @@
+* {
+    font-family: 'Silkscreen', cursive;
+}
+
+.login__container,
+.form-login__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login__container {
+    width: 90%;
+    max-width: 300px;
+    padding-block: 1em;
+    gap: .5em;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    gap: 1em;
+    margin-inline: 20px;
+    padding-block: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .main-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+    }
+}

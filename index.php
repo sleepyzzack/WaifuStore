@@ -1,113 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <title>WaifuStore</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WaifuStore</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="extras/sendSearch.js"></script>
+  <script src="extras/AdminUser.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./vistas/assets/css/normalize.css">
+  <link rel="stylesheet" href="./vistas/assets/css/main.css">
+  <link rel="stylesheet" href="./vistas/assets/css/navbar.css">
+  <link rel="stylesheet" href="./vistas/assets/css/card.css">
+</head>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="prueba\tienda-online\assets\css\bootstrap.min.css">
-    <link rel="stylesheet" href="prueba\tienda-online\assets\css\estilos.css">
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar-header">
+    <a class="navbar__title " onClick="createDiv()">WaifuStore</a>
+    <div class="navbar__search">
+      <label class="navbar__search-title">Buscador</label>
+      <input class="navbar__search-input" onKeyUp="buscar_ahora($('#buscar').val())" type="text" id="buscar" name="buscar">
+    </div>
+  </nav>
+  <!-- NAVBAR -->
+  <div class="form-login__container" id="pass"></div>
+  <div id="datos_buscador" class="main-container">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="extras/sendSearch.js"></script>
-    <script src="extras/AdminUser.js"></script>
-  
-  </head>
+  </div>
+  <main class="main-container" id="main">
+    <?php
+    include_once('modelos/conexion.php');
+    $sql = $connect->query("SELECT * FROM books");
+    while ($datos = $sql->fetch_object()) { ?>
+      <div class="card">
+        <div class="card__body">
+          <?php
 
-  <body>
+          $foto = 'img/' . $datos->book_img;
+          $tipo = explode(".", $datos->book_img);
+          if (file_exists($foto) and strtolower(end($tipo)) == "png" or strtolower(end($tipo)) == "jpg") {
+          ?>
+            <img src="<?php print $foto; ?>" class="card__img">
+          <?php } elseif (file_exists($foto) and strtolower(end($tipo)) == "mp4") { ?>
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="mb-3">
+            <video src="<?php print $foto; ?>" class="card__img" controls></video>
 
-          <label class="text-white">buscador automatico</label>
-          <input onKeyUp="buscar_ahora($('#buscar').val())" type="text" class="form-control" id="buscar" name="buscar">
-
+          <?php } else { ?>
+            <img src="assets/imagenes/not-found.jpg" class="card__img">
+          <?php } ?>
         </div>
-        
-        <div class="navbar-header">
-          <a class="navbar-brand" onClick="createDiv()">WaifuStore</a>
-        </div>
-
+        <p class="card__name"><?= $datos->book_name ?></p>
+        <p class="card__category">Categoria: <?= $datos->book_category ?></p>
+        <p class="card__price">$<?= $datos->book_price; ?></p>
+        <a class="card__button" href="vistas\comprar.php?id=<?= $datos->id_books ?>">
+          Comprar
+        </a>
       </div>
-    </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div id="pass"></div>
-    <div id="datos_buscador" class="container pl-5 pr-5"></div>
+    <?php } ?>
+  </main>
 
-    <div class="container" id="main">
-        <div class="row">
-           
-        <?php
-                    include_once('modelos/conexion.php');
-                    $sql = $connect->query("SELECT * FROM books");
-                    while ($datos = $sql->fetch_object()) { ?>
-                       <div class="col-md-3">
-                  <div class="panel panel-default">
-                    
-                    <div class="panel-body">
-                      <?php
-                        
-                          $foto = 'img/'.$datos->book_img;
-                          $tipo = explode(".", $datos->book_img);
-                          if(file_exists($foto) and strtolower(end($tipo)) =="png" or strtolower(end($tipo)) =="jpg"){
-                        ?>
-                          <img src="<?php print $foto; ?>" class="img-responsive">
-                      <?php }elseif(file_exists($foto) and strtolower(end($tipo)) =="mp4"){?>
-                        
-                        <video src="<?php print $foto; ?>" class="img-responsive" controls></video>
-                        
-                         <?php }else{?>
-                        <img src="assets/imagenes/not-found.jpg" class="img-responsive">
-                      <?php }?>
-                    </div>
-                    <div class="panel-heading">
-                      <h1 class="text-center titulo-pelicula"><?= $datos->book_name ?></h1>  
-                    </div>
-                    
-                    <div class="panel-heading">
-                      <h1 class="text-center titulo-pelicula">Categoria: <?= $datos->book_category ?></h1>  
-                    </div>
+  <script src="prueba\tienda-online\assets\js\jquery.min.js"></script>
+  <script src="prueba\tienda-online\assets\js\bootstrap.min.js"></script>
+</body>
 
-                    <div class="panel-footer">
-                    <span>$<?= $datos->book_price; ?></span>
-      
-                    </div>
-
-                    <div class="panel-footer">
-                        <a href="vistas\comprar.php?id=<?= $datos->id_books ?>" class="btn btn-success btn-block">
-                          <span class="glyphicon glyphicon-shopping-cart">Comprar</span>
-                        </a>
-                    </div>
-                  </div>
-              
-              
-              </div>
-          
-            <?php }?>
-           
-
-        </div>
-      
-
-    </div> <!-- /container -->
-
-   
-    
-    <script src="prueba\tienda-online\assets\js\jquery.min.js"></script>
-    <script src="prueba\tienda-online\assets\js\bootstrap.min.js"></script>
-
-  </body>
 </html>
