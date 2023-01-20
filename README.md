@@ -1,2 +1,2 @@
-# LibrosCRUD
-CRUD de libros
+# Waifustore
+e-commerce de libros fundamental
